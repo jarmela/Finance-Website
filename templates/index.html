@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+  
+    <table class="form-group table-striped">
+        <div class="container" >
+        <thead>
+            <tr>
+                <th class="section">Symbol</th>
+                <th class="section">Name</th>
+                <th class="section">Shares</th>
+                <th class="section">Price</th>
+                <th class="section">Total</th>
+            </tr>
+        </thead>
+        <tfoot  class="left">
+            <td colspan='4'></td>
+            <td>${{global_list[0]}}</td>
+        </tfoot>
+        <tbody  class="left">
+            {% for element in global_list[2] %}
+                <tr>
+                    <td>{{element['stock']}}</td>
+                    <td>{{element['name']}}</td>
+                    <td>{{element['shares']}}</td>
+                    <td>${{element['value']}}</td>
+                    <td>${{element['total']}}</td>
+                </tr>
+             {% endfor %}   
+            <tr>
+                <td colspan="4" >CASH</td>
+                <td >${{global_list[1]}}</td>
+            </tr>
+        </tbody>
+        </div>
+    </table>
+  
+{% endblock %}
+   

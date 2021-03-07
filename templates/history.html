@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+  
+    <table class="form-group table-striped">
+        <div class="container" >
+        <thead>
+            <tr>
+                <th class="section">Symbol</th>
+                <th class="section">Shares</th>
+                <th class="section">Price</th>
+                <th class="section">Transacted</th>
+                <th class="section">Buy/Sell</th>
+            </tr>
+        </thead>
+        <tbody  class="left">
+            {% for element in list1 %}
+                <tr>
+                    <td>{{element['stock']}}</td>
+                    <td>{{element['shares']}}</td>
+                    <td>${{element['value']}}</td>
+                    <td>{{element['time']}}</td>
+                    <td>{{element['operation']}}</td>
+                </tr>
+             {% endfor %}   
+        </tbody>
+        </div>
+    </table>
+  
+{% endblock %}
